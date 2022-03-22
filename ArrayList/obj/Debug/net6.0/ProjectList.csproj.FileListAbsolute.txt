@@ -1,0 +1,12 @@
+C:\Users\artem\Desktop\ProjectArray\ArrayList\bin\Debug\net6.0\ProjectList.deps.json
+C:\Users\artem\Desktop\ProjectArray\ArrayList\bin\Debug\net6.0\ProjectList.dll
+C:\Users\artem\Desktop\ProjectArray\ArrayList\bin\Debug\net6.0\ProjectList.pdb
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ProjectList.csproj.AssemblyReference.cache
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ProjectList.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ProjectList.AssemblyInfoInputs.cache
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ProjectList.AssemblyInfo.cs
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ProjectList.csproj.CoreCompileInputs.cache
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ProjectList.dll
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\refint\ProjectList.dll
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ProjectList.pdb
+C:\Users\artem\Desktop\ProjectArray\ArrayList\obj\Debug\net6.0\ref\ProjectList.dll
