@@ -12,5 +12,5 @@ ArrayList list = new ArrayList();
     list.Write();
     list.AddIndex(1, 5);
     list.Write();
-    list.DeleteNElements(2, 2);
+    list.ChangeIndex(2, 2);
     list.Write();
