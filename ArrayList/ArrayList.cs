@@ -196,6 +196,120 @@ namespace ProjectList
             }
             _array[index] = value;
         }
+        public void Reverse()
+        {
+            int[] arr = new int[Length];
+            int j = 0;
+            for (int i=Length-1; i>=0; i--)
+            {
+                arr[j] = _array[i];
+                j++;
+            }
+            _array=arr;
+        }
+        public int FindMaxElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("ArrayList is empty");
+            }
+            int max = _array[0];
+            for (int i=0; i<Length; i++)
+            {
+                if (_array[i]>max)
+                {
+                    max= _array[i];
+                }
+            }
+            return max;
+        }
+        public int FindMinElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("ArrayList is empty");
+            }
+            int min = _array[0];
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] < min)
+                {
+                    min = _array[i];
+                }
+            }
+            return min;
+        }
+        public int FindIndexMaxElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("ArrayList is empty");
+            }
+            int index = 0;
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] > _array[index])
+                {
+                    index=i;
+                }
+            }
+            return index;
+        }
+        public int FindIndexMinElement()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("ArrayList is empty");
+            }
+            int index = 0;
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] < _array[index])
+                {
+                    index = i;
+                }
+            }
+            return index;
+        }
+        public void SortIncrease()
+        {
+            for (int i = 0; i < Length; i++)
+            {
+                for (int j = 0; j < Length - 1; j++)
+                {
+                    if (_array[j] > _array[j + 1])
+                    {
+                        int z = _array[j];
+                        _array[j] = _array[j + 1];
+                        _array[j + 1] = z;
+                    }
+                }
+            }
+        }
+        public void SortDescending()
+        {
+            SortIncrease();
+            Reverse();
+        }
+        public int DeleteFirstValue(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("ArrayList is empty");
+            }
+            int index = -1;
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i]==value)
+                {
+                    MovieLeft(i);
+                    index = i;
+                    Length--;
+                    break;
+                }
+            }
+            return index;
+        }
         public void Write()
         {
             Console.Write($"L={Length} RL={_array.Length}   ");

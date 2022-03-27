@@ -82,5 +82,59 @@ namespace ProjectList.Tests
             list.ChangeIndex(value, index);
             Assert.AreEqual(expectedList, list);
         }
+        [TestCaseSource(typeof(ReverseTestSource))]
+        public void ReverseTest(ArrayList list, ArrayList expectedList)
+        {
+            list.Reverse();
+            Assert.AreEqual(expectedList, list);
+        }
+        [TestCaseSource(typeof(FindMaxElementTestSource))]
+        public void FindMaxElementTest(ArrayList list, ArrayList expectedList, int expectedNumber)
+        {
+            int actualNumber = list.FindMaxElement();
+            Assert.AreEqual(expectedList, list);
+            Assert.AreEqual(actualNumber, expectedNumber);
+        }
+        [TestCaseSource(typeof(FindMinElementTestSource))]
+        public void FindMinElementTest(ArrayList list, ArrayList expectedList, int expectedNumber)
+        {
+            int actualNumber = list.FindMinElement();
+            Assert.AreEqual(expectedList, list);
+            Assert.AreEqual(actualNumber, expectedNumber);
+        }
+        [TestCaseSource(typeof(FindIndexMaxElementTestSource))]
+        public void FindIndexMaxElementTest(ArrayList list, ArrayList expectedList, int expectedIndex)
+        {
+            int actualIndex = list.FindIndexMaxElement();
+            Assert.AreEqual(expectedList, list);
+            Assert.AreEqual(actualIndex, expectedIndex);
+        }
+        [TestCaseSource(typeof(FindIndexMinElementTestSource))]
+        public void FindIndexMinElementTest(ArrayList list, ArrayList expectedList, int expectedIndex)
+        {
+            int actualIndex = list.FindIndexMinElement();
+            Assert.AreEqual(expectedList, list);
+            Assert.AreEqual(actualIndex, expectedIndex);
+        }
+        [TestCaseSource(typeof(SortIncreaseTestSource))]
+        public void SortIncreaseTest(ArrayList list, ArrayList expectedList)
+        {
+            list.SortIncrease();
+            Assert.AreEqual(expectedList, list);
+        }
+        [TestCaseSource(typeof(SortDescendingTestSource))]
+        public void SortDescendingTest(ArrayList list, ArrayList expectedList)
+        {
+            list.SortDescending();
+            Assert.AreEqual(expectedList, list);
+        }
+        [TestCaseSource(typeof(DeleteFirstValueTestSource))]
+        public void DeleteFirstValueTest(int value, ArrayList list, ArrayList expectedList, int expectedNumber)
+        {
+            int actualNumber = list.DeleteFirstValue(value);
+            Assert.AreEqual(expectedNumber, actualNumber);
+            Assert.AreEqual(expectedList, list);
+        }
+
     }
 }
