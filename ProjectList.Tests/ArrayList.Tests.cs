@@ -1,6 +1,9 @@
 using NUnit.Framework;
 using System.Collections;
 using ProjectList.Tests.ArrayListTestsSources;
+using System;
+using ProjectList.Tests.ArrayListNegativeTestsSources;
+using static ProjectList.Tests.ArrayListNegativeTestsSources.DeleteLastNNumbersNegativeTestSource_WhenLengthLessThanN;
 
 namespace ProjectList.Tests
 {
@@ -34,6 +37,11 @@ namespace ProjectList.Tests
             list.AddIndex(value, Index);
             Assert.AreEqual(expectedList, list);
         }
+        [TestCaseSource(typeof(AddIndexNegativeTestSource))]
+        public void AddByIndexTest_WhenIndexOutOfLength_ShouldThrowException(ArrayList actuallist, int value, int index)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.AddIndex(index, value));
+        }
         [TestCaseSource(typeof(DeleteLastTestSource))]
         public void DeleteLastTest(ArrayList list, ArrayList expectedList)
         {
@@ -46,11 +54,21 @@ namespace ProjectList.Tests
             list.DeleteStart();
             Assert.AreEqual(expectedList, list);
         }
+        [TestCaseSource(typeof(DeleteStartNegativeTestSource))]
+        public void DeleteStartTestWhenIndexOutOfLength_ShouldThrowException(ArrayList actuallist,  int index)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteStart(index));
+        }
         [TestCaseSource(typeof(DeleteIndexTestSource))]
         public void DeleteIndexTest(int Index, ArrayList list, ArrayList expectedList)
         {
             list.DeleteIndex(Index);
             Assert.AreEqual(expectedList, list);
+        }
+        [TestCaseSource(typeof(DeleteIndexNegativeTestSource))]
+        public void DeleteIndexTestWhenIndexOutOfLength_ShouldThrowException(ArrayList actuallist, int index)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteIndex(index));
         }
         [TestCaseSource(typeof(DeleteLastNNumbersTestSource))]
         public void DeleteLastNNumbersTest(int value, ArrayList list, ArrayList expectedList)
@@ -58,17 +76,47 @@ namespace ProjectList.Tests
             list.DeleteLastNNumbers(value);
             Assert.AreEqual(expectedList, list);
         }
+        [TestCaseSource(typeof(DeleteLastNNumbersNegativeTestSource_WhenLengthLessThanN))]
+        public void DeleteLastNNumbersWhenLenghtLessThanN(ArrayList actuallist, int n)
+        {
+            Assert.Throws<Exception>(() => actuallist.DeleteLastNNumbers(n));
+        }
+        [TestCaseSource(typeof(DeleteLastNNumbersNegativeTestSource_WhenNLessThanZero))]
+        public void DeleteLastNNumbersWhenNLessThanZero(ArrayList actuallist, int n)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.DeleteLastNNumbers(n));
+        }
         [TestCaseSource(typeof(DeleteStartNNumbersTestSource))]
         public void DeleteStartNNumbersTest(int value, ArrayList list, ArrayList expectedList)
         {
             list.DeleteStartNNumbers(value);
             Assert.AreEqual(expectedList, list);
         }
+        [TestCaseSource(typeof(DeleteStartNNumbersNegativeTestSource_WhenLengthLessThanN))]
+        public void DeleteStartNNumbersWhenLenghtLessThanN(ArrayList actuallist, int n)
+        {
+            Assert.Throws<Exception>(() => actuallist.DeleteStartNNumbers(n));
+        }
+        [TestCaseSource(typeof(DeleteStartNNumbersNegativeTestSource_WhenNLessThanZero))]
+        public void DeleteStartNNumbersWhenNLessThanZero(ArrayList actuallist, int n)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.DeleteStartNNumbers(n));
+        }
         [TestCaseSource(typeof(DeleteNElementsTestSource))]
         public void DeleteNElementsTest(int n, int index, ArrayList list, ArrayList expectedList)
         {
             list.DeleteStartNNumbers(n, index);
             Assert.AreEqual(expectedList, list);
+        }
+        [TestCaseSource(typeof(DeleteNElementsNegativeTestSource_WhenIndexLessThanZeroOrMoreThanLenght))]
+        public void DeleteNElementsWhenIndexLessThanZeroOrMoreThanLenght(ArrayList actuallist, int n, int index)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteNElements(n, index));
+        }
+        [TestCaseSource(typeof(DeleteNElementsNegativeTestSource_WhenNLessThanZeroOrMoreThanLength))]
+        public void DeleteNElementsWhenNLessThanZeroOrMoreThanLength(ArrayList actuallist, int n, int index)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.DeleteNElements(n, index));
         }
         [TestCaseSource(typeof(FindFirstIndexValueTestSource))]
         public void FindFirstIndexValueTest(int value, int expected, ArrayList list)

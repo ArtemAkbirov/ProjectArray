@@ -133,6 +133,14 @@ namespace ProjectList
         }
         public void DeleteLastNNumbers(int n)
         {
+            if (Length<n)
+            {
+                throw new Exception("imposible to delit last numbers");
+            }
+            if (n < 0)
+            {
+                throw new ArgumentException("imposible value");
+            }
             for (int i = 0; i < n; i++)
             {
                 Length--;
@@ -140,6 +148,14 @@ namespace ProjectList
         }
         public void DeleteStartNNumbers(int n,int index=0)
         {
+            if (Length < n)
+            {
+                throw new Exception("imposible to delit last numbers");
+            }
+            if (n < 0)
+            {
+                throw new ArgumentException("imposible value");
+            }
             for (int i = 0; i < n; i++)
             {
                 MovieLeft(index);
@@ -148,6 +164,14 @@ namespace ProjectList
         }
         public void DeleteNElements(int n,int index)
         {
+            if (index < 0 || index > _array.Length)
+            {
+                throw new IndexOutOfRangeException("index");
+            }
+            if (n < 0 || n > _array.Length)
+            {
+                throw new ArgumentException("range");
+            }
             int[] arr = new int[Length - n];
             for (int i = 0; i < index; i++)
             {
